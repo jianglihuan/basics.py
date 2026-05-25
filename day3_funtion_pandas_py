@@ -1,0 +1,30 @@
+#函数调用。在肿瘤药物研发中，我们希望药物对癌症细胞的杀伤力强（IC50 很低），而对正常细胞的毒性小（IC50 很高）。两者的比值就是选择性指数（Selectivity Index, SI）
+
+# 1. 用 def 关键字来“定义”一个函数，括号里是输入的“原料”（参数）
+def calculate_si(ic50_normal, ic50_cancer):
+    
+    # 2. 函数内部的具体计算逻辑
+    si_value = ic50_normal / ic50_cancer
+    
+    # 3. 用 return 关键字把最终的“产品”（结果）吐出来
+    return si_value
+
+# ----------------- 函数定义好了，开始使用（调用） -----------------
+
+# 假设化合物 A 的实验数据
+compound_A_normal = 50.0  # 对正常细胞 IC50
+compound_A_cancer = 0.05  # 对癌症细胞 IC50
+
+# 直接调用函数，把数据传进去，像不像在实验室用自动化仪器？
+si_A = calculate_si(compound_A_normal, compound_A_cancer)
+
+print(f"化合物 A 的选择性指数为：{si_A}")  # 打印出 1000.0
+ def is_valid_peptide(seq):
+     if len(seq)>5:
+            return True
+     else:
+             return False
+seq = "AAAAAAAA"
+is_valid_peptide(seq)
+
+#pandas 学习
