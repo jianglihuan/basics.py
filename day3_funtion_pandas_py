@@ -28,3 +28,25 @@ seq = "AAAAAAAA"
 is_valid_peptide(seq)
 
 #pandas 学习
+import pandas as pd
+
+# 1. 用字典准备数据：包含 3 个分子的属性
+# ⚠️ 注意：每个列表的长度必须严格一致（这里都是 3 个元素）
+raw_data = {
+    "compound_id": ["CDB-01", "CDB-02", "CDB-03"],
+    "molecular_weight": [380.2, 450.5, 290.1],  # 分子量 (Da)
+    "ic50": [0.04, 2.15, 0.85]                 # 活性值 (uM)
+}
+
+# 2. 将字典转化为 Pandas 的 DataFrame
+df = pd.DataFrame(raw_data)
+
+# ----------------- 开始观察数据 -----------------
+
+print("=== 1. 使用 head() 预览表格 ===")
+# 我们只有 3 行数据，传入参数 2 表示只看前 2 行
+print(df.head(2))
+
+print("\n=== 2. 使用 describe() 查看数值列统计 ===")
+# 它会自动跳过文本列（compound_id），只对分子量和 ic50 进行统计
+print(df.describe())
