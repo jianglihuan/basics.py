@@ -50,3 +50,17 @@ print(df.head(2))
 print("\n=== 2. 使用 describe() 查看数值列统计 ===")
 # 它会自动跳过文本列（compound_id），只对分子量和 ic50 进行统计
 print(df.describe())
+>>> raw_data = {'logp':[2.5, 4.1, 1.8]}
+>>> import pandas as pd
+>>> df = pd.DataFrame(raw_data)
+>>> print(df.describe())
+           logp
+count  3.000000
+mean   2.800000
+std    1.178983
+min    1.800000
+25%    2.150000
+50%    2.500000
+75%    3.300000
+max    4.100000
+>>>
