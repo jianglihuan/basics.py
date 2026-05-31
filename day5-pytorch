@@ -1,0 +1,30 @@
+#张量其实就是根据维度（Dimensions）不同而叫法不同的数字组合,2维张量（2D Tensor）：有行有列的数字方阵（矩阵，Matrix）。
+#张量（tensor）
+import pandas as pd
+import torch  # ⚠️ 注意：PyTorch 库在代码里的名字叫 torch
+
+# 1. 把普通 Python 列表 变成 1D 张量
+amino_acids_count = [51, 315, 120]
+tensor_1d = torch.tensor(amino_acids_count)
+
+print("=== 1. 普通列表转化后的 Tensor ===")
+print(tensor_1d)
+print(f"这个张量的形状（Shape）是: {tensor_1d.shape}\n")
+
+
+# 2. 把 Pandas 表格 变成 2D 张量
+raw_data = {
+    "molecular_weight": [380.2, 550.1],
+    "ic50": [0.02, 4.20]
+}
+df = pd.DataFrame(raw_data)
+
+# 核心操作：直接把整个 df 扔进 torch.tensor() 里
+# ⚠️ 注意：Tensor 只要纯数字，所以我们只拿数值部分 (.values)
+tensor_2d = torch.tensor(df.values)
+
+print("=== 2. Pandas表格转化后的 Tensor ===")
+print(tensor_2d)
+print(f"这个张量的形状（Shape）是: {tensor_2d.shape}")
+
+#用 torch.tensor() 创造出来的张量，全部都在 CPU 上。如果我们要训练 AI 模型，就必须学会用代码把它手动“发射”到GPU上。
